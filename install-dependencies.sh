@@ -2,6 +2,14 @@
 
 set -e
 
+environment="$1"
+
+if [ -z "$environment" ]
+then
+    echo 'First parameter should be "development" or "production".'
+    exit 1
+fi
+
 DEFER=()
 
 APK=()
