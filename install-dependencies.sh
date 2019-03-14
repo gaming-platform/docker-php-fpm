@@ -27,8 +27,7 @@ then
 
     PHP+=('zip')
 
-    # todo: Switch to xdebug if it's released for php 7.3
-    DEFER+=('pecl install xdebug-beta')
+    DEFER+=('pecl install xdebug')
     DEFER+=('docker-php-ext-enable xdebug')
 
     DEFER+=("
