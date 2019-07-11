@@ -18,6 +18,8 @@ APK+=($PHPIZE_DEPS)
 PHP=()
 PHP+=('pdo_mysql')
 PHP+=('bcmath')
+DEFER+=('pecl install redis')
+DEFER+=('docker-php-ext-enable redis')
 
 if [ "$environment" = "development" ]
 then
