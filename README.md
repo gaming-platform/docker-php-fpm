@@ -26,6 +26,7 @@ Basically everything what the `php:7.3-fpm-alpine` image provides and
 __Installed packages__  
 Basically everything what the `php:7.3-fpm-alpine` image provides and
 * bash
+* coreutils (will be removed in 7.4)
 * zlib-dev
 * libzip-dev
 * inotify-tools
@@ -45,3 +46,4 @@ Basically everything what the `php:7.3-fpm-alpine` image provides and
 __Installed packages__  
 Basically everything what the `php:7.3-fpm-alpine` image provides and
 * bash
+* coreutils (will be removed in 7.4)

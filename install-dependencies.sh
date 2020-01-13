@@ -13,6 +13,7 @@ fi
 DEFER=()
 
 APK=()
+APK+=('coreutils')
 APK+=($PHPIZE_DEPS)
 
 PHP=()
