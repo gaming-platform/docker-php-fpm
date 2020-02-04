@@ -14,17 +14,17 @@ The following environments are available.
 ### Development
 
 __Name__  
-`gamingplatform/php-fpm:7.3-development`
+`gamingplatform/php-fpm:7.4-development`
 
 __PHP extensions__  
-Basically everything what the `php:7.3-fpm-alpine` image provides and
+Basically everything what the `php:7.4-fpm-alpine` image provides and
 * pdo_mysql
 * bcmath
 * zip
 * xdebug
 
 __Installed packages__  
-Basically everything what the `php:7.3-fpm-alpine` image provides and
+Basically everything what the `php:7.4-fpm-alpine` image provides and
 * bash
 * zlib-dev
 * libzip-dev
@@ -34,14 +34,14 @@ Basically everything what the `php:7.3-fpm-alpine` image provides and
 ### Production
 
 __Name__  
-`gamingplatform/php-fpm:7.3-production`
+`gamingplatform/php-fpm:7.4-production`
 
 __PHP extensions__  
-Basically everything what the `php:7.3-fpm-alpine` image provides and
+Basically everything what the `php:7.4-fpm-alpine` image provides and
 * pdo_mysql
 * bcmath
 * opcache
 
 __Installed packages__  
-Basically everything what the `php:7.3-fpm-alpine` image provides and
+Basically everything what the `php:7.4-fpm-alpine` image provides and
 * bash
