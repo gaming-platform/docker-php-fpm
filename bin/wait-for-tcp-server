@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+function canConnectToEndpoint(string $endpoint, int $tryUntil): bool
+{
+    if (@stream_socket_client($endpoint, $errno, $errstr, 1) !== false) {
+        return true;
+    }
+
+    if (time() < $tryUntil) {
+        sleep(1);
+        return canConnectToEndpoint($endpoint, $tryUntil);
+    }
+
+    return false;
+}
+
+$scriptName = $argv[0] ?? '';
+$endpoints = $argv[1] ?? '';
+$timeout = $argv[2] ? (int)$argv[2] : 60;
+
+if ($endpoints === '') {
+    echo <<<USAGE
+Usage:
+$scriptName host:port[,host:port[,host:port]] [timeout]
+
+If all tcp connections could be established, the program will exit with 0.
+If at least one tcp connection could not be established, the program will exit with 1.
+
+USAGE;
+
+    exit(0);
+}
+
+$tryUntil = time() + $timeout;
+$exitCode = 0;
+
+foreach(explode(',', $endpoints) as $endpoint) {
+    if (!canConnectToEndpoint($endpoint, $tryUntil)) {
+        $exitCode = 1;
+        fwrite(STDERR, $endpoint . ' is not available' . PHP_EOL);
+    }
+}
+
+exit($exitCode);
