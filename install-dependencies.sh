@@ -18,6 +18,7 @@ APK+=($PHPIZE_DEPS)
 PHP=()
 PHP+=('pdo_mysql')
 PHP+=('bcmath')
+PHP+=('sockets')
 DEFER+=('pecl install redis')
 DEFER+=('docker-php-ext-enable redis')
 

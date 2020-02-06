@@ -20,6 +20,7 @@ __PHP extensions__
 Basically everything what the `php:7.4-fpm-alpine` image provides and
 * pdo_mysql
 * redis
+* sockets
 * bcmath
 * zip
 * xdebug
@@ -41,6 +42,7 @@ __PHP extensions__
 Basically everything what the `php:7.4-fpm-alpine` image provides and
 * pdo_mysql
 * redis
+* sockets
 * bcmath
 * opcache
 
