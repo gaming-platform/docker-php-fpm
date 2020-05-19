@@ -22,6 +22,7 @@ Basically everything what the `php:7.4-fpm-alpine` image provides and
 * redis
 * sockets
 * bcmath
+* opcache
 * zip
 * xdebug
 

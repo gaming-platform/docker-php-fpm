@@ -19,6 +19,7 @@ PHP=()
 PHP+=('pdo_mysql')
 PHP+=('bcmath')
 PHP+=('sockets')
+PHP+=('opcache')
 DEFER+=('pecl install redis')
 DEFER+=('docker-php-ext-enable redis')
 
@@ -44,8 +45,6 @@ then
     DEFER+=('rm installer')
     DEFER+=('composer global require hirak/prestissimo')
     DEFER+=('composer clearcache')
-else
-    PHP+=('opcache')
 fi
 
 apk add --no-cache "${APK[@]}"
