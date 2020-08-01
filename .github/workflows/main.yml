@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: master
+  pull_request:
+
+jobs:
+  pipeline:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare
+        run: |
+          docker build --file development/Dockerfile \
+                       --tag docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-development:latest \
+                       .
+          docker build --file production/Dockerfile \
+                       --tag docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-production:latest \
+                       .
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u marein --password-stdin
+          docker push docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-development:latest
+          docker push docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-production:latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
