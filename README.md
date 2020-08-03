@@ -18,21 +18,21 @@ __Name__
 
 __PHP extensions__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and
+* bcmath
+* opcache
 * pdo_mysql
 * redis
 * sockets
-* bcmath
-* opcache
-* zip
 * xdebug
+* zip
 
 __Installed packages__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and
 * bash
-* zlib-dev
-* libzip-dev
-* inotify-tools
 * composer with the `hirak/prestissimo` plugin
+* inotify-tools
+* libzip-dev
+* zlib-dev
 
 ### Production
 
@@ -41,11 +41,11 @@ __Name__
 
 __PHP extensions__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and
+* bcmath
+* opcache
 * pdo_mysql
 * redis
 * sockets
-* bcmath
-* opcache
 
 __Installed packages__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and

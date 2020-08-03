@@ -10,24 +10,24 @@ then
     exit 1
 fi
 
-DEFER=()
-
 APK=()
 APK+=($PHPIZE_DEPS)
 
 PHP=()
-PHP+=('pdo_mysql')
 PHP+=('bcmath')
-PHP+=('sockets')
 PHP+=('opcache')
+PHP+=('pdo_mysql')
+PHP+=('sockets')
+
+DEFER=()
 DEFER+=('pecl install redis')
 DEFER+=('docker-php-ext-enable redis')
 
 if [ "$environment" = "development" ]
 then
-    APK+=('zlib-dev')
-    APK+=('libzip-dev')
     APK+=('inotify-tools')
+    APK+=('libzip-dev')
+    APK+=('zlib-dev')
 
     PHP+=('zip')
 
