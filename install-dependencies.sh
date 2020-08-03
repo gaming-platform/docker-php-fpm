@@ -14,7 +14,6 @@ APK=()
 APK+=($PHPIZE_DEPS)
 
 PHP=()
-PHP+=('bcmath')
 PHP+=('opcache')
 PHP+=('pdo_mysql')
 PHP+=('sockets')
