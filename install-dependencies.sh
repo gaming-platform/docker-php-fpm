@@ -12,8 +12,10 @@ fi
 
 APK=()
 APK+=($PHPIZE_DEPS)
+APK+=('icu-dev')
 
 PHP=()
+PHP+=('intl')
 PHP+=('opcache')
 PHP+=('pdo_mysql')
 PHP+=('sockets')

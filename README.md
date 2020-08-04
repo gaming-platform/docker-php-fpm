@@ -18,6 +18,7 @@ __Name__
 
 __PHP extensions__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and
+* intl
 * opcache
 * pdo_mysql
 * redis
@@ -40,6 +41,7 @@ __Name__
 
 __PHP extensions__  
 Basically everything what the `php:7.4-fpm-alpine` image provides and
+* intl
 * opcache
 * pdo_mysql
 * redis
