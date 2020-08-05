@@ -16,17 +16,18 @@ jobs:
       - name: Prepare
         run: |
           docker build --file development/Dockerfile \
-                       --tag docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-development:latest \
+                       --tag gamingplatform/php-fpm:7.4-development \
                        .
           docker build --file production/Dockerfile \
-                       --tag docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-production:latest \
+                       --tag gamingplatform/php-fpm:7.4-production \
                        .
 
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         run: |
-          echo "$GITHUB_TOKEN" | docker login docker.pkg.github.com -u marein --password-stdin
-          docker push docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-development:latest
-          docker push docker.pkg.github.com/gaming-platform/docker-php-fpm/7.4-production:latest
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push gamingplatform/php-fpm:7.4-development
+          docker push gamingplatform/php-fpm:7.4-production
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
