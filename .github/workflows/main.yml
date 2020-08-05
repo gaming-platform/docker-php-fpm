@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: master
+  pull_request:
+
+jobs:
+  pipeline:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare
+        run: |
+          docker build --file development/Dockerfile \
+                       --tag gamingplatform/php-fpm:7.3-development \
+                       .
+          docker build --file production/Dockerfile \
+                       --tag gamingplatform/php-fpm:7.3-production \
+                       .
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push gamingplatform/php-fpm:7.3-development
+          docker push gamingplatform/php-fpm:7.3-production
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
