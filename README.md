@@ -14,39 +14,60 @@ The following environments are available.
 ### Development
 
 __Name__  
-`gamingplatform/php-fpm:7.4-development`
+`gamingplatform/php-fpm:8.0-development`
 
-__PHP extensions__  
-Basically everything what the `php:7.4-fpm-alpine` image provides and
-* intl
-* opcache
-* pdo_mysql
-* redis
-* sockets
-* xdebug
-* zip
+__Packages__  
+Check
+[here](/install-dependencies.sh)
+what is included.
 
-__Installed packages__  
-Basically everything what the `php:7.4-fpm-alpine` image provides and
-* bash
-* composer with the `hirak/prestissimo` plugin
-* inotify-tools
-* libzip-dev
-* zlib-dev
+__Environment variables__  
+In the following table you will find an overview of the available environment variables:
+
+| Name                                | Default   |
+|-------------------------------------|-----------|
+| `PHP_FPM_LISTEN`                    | [::]:9000 |
+| `PHP_FPM_PM`                        | dynamic   |
+| `PHP_FPM_PM_MAX_CHILDREN`           | 5         |
+| `PHP_FPM_PM_START_SERVERS`          | 2         |
+| `PHP_FPM_PM_MIN_SPARE_SERVERS`      | 1         |
+| `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3         |
+| `PHP_FPM_PM_MAX_REQUESTS`           | 0         |
+| `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 0         |
+| `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000     |
+| `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256       |
+| `PHP_OPCACHE_VALIDATE_TIMESTAMPS`   | 1         |
+| `PHP_REALPATH_CACHE_SIZE`           | 4096K     |
+| `PHP_REALPATH_CACHE_TTL`            | 600       |
+| `PHP_XDEBUG_MODE`                   | coverage  |
+| `PHP_ZEND_ASSERTIONS`               | 1         |
 
 ### Production
 
 __Name__  
-`gamingplatform/php-fpm:7.4-production`
+`gamingplatform/php-fpm:8.0-production`
 
-__PHP extensions__  
-Basically everything what the `php:7.4-fpm-alpine` image provides and
-* intl
-* opcache
-* pdo_mysql
-* redis
-* sockets
+__Packages__  
+Check
+[here](/install-dependencies.sh)
+what is included.
 
-__Installed packages__  
-Basically everything what the `php:7.4-fpm-alpine` image provides and
-* bash
+__Environment variables__  
+In the following table you will find an overview of the available environment variables:
+
+| Name                                | Default   |
+|-------------------------------------|-----------|
+| `PHP_FPM_LISTEN`                    | [::]:9000 |
+| `PHP_FPM_PM`                        | dynamic   |
+| `PHP_FPM_PM_MAX_CHILDREN`           | 5         |
+| `PHP_FPM_PM_START_SERVERS`          | 2         |
+| `PHP_FPM_PM_MIN_SPARE_SERVERS`      | 1         |
+| `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3         |
+| `PHP_FPM_PM_MAX_REQUESTS`           | 0         |
+| `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 256M      |
+| `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000     |
+| `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256       |
+| `PHP_OPCACHE_VALIDATE_TIMESTAMPS`   | 0         |
+| `PHP_REALPATH_CACHE_SIZE`           | 4096K     |
+| `PHP_REALPATH_CACHE_TTL`            | 600       |
+| `PHP_ZEND_ASSERTIONS`               | -1        |
