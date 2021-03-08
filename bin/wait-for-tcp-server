@@ -18,7 +18,7 @@ function canConnectToEndpoint(string $endpoint, int $tryUntil): bool
 
 $scriptName = $argv[0] ?? '';
 $endpoints = $argv[1] ?? '';
-$timeout = $argv[2] ? (int)$argv[2] : 60;
+$timeout = (int)($argv[2] ?? 60);
 
 if ($endpoints === '') {
     echo <<<USAGE

@@ -2,56 +2,41 @@
 
 set -e
 
-environment="$1"
+apt-get update
+apt-get upgrade --yes
 
-if [ -z "$environment" ]
-then
-    echo 'First parameter should be "development" or "production".'
-    exit 1
-fi
+apt-get install --yes --no-install-recommends \
+    software-properties-common
+add-apt-repository ppa:ondrej/php
 
-APK=()
-APK+=($PHPIZE_DEPS)
-APK+=('icu-dev')
-
-PHP=()
-PHP+=('intl')
-PHP+=('opcache')
-PHP+=('pdo_mysql')
-PHP+=('sockets')
-
-DEFER=()
-DEFER+=('pecl install redis')
-DEFER+=('docker-php-ext-enable redis')
+apt-get install --yes --no-install-recommends \
+    php8.0-cli \
+    php8.0-fpm \
+    php8.0-curl \
+    php8.0-dom \
+    php8.0-intl \
+    php8.0-mbstring \
+    php8.0-mysql \
+    php8.0-sockets \
+    php8.0-zip
 
 if [ "$environment" = "development" ]
 then
-    APK+=('inotify-tools')
-    APK+=('libzip-dev')
-    APK+=('zlib-dev')
+    apt-get install --yes --no-install-recommends \
+        curl \
+        inotify-tools \
+        unzip \
+        php8.0-xdebug
 
-    PHP+=('zip')
+    curl \
+        https://raw.githubusercontent.com/composer/getcomposer.org/d3e09029468023aa4e9dcd165e9b6f43df0a9999/web/installer \
+        --output installer
 
-    DEFER+=('pecl install xdebug')
-    DEFER+=('docker-php-ext-enable xdebug')
-
-    DEFER+=("
-        wget
-        https://raw.githubusercontent.com/composer/getcomposer.org/d3e09029468023aa4e9dcd165e9b6f43df0a9999/web/installer
-        -O installer
-    ")
-    DEFER+=("
-        php installer --install-dir=/usr/local/bin --filename=composer --version=1.8.0
-    ")
-    DEFER+=('rm installer')
-    DEFER+=('composer global require hirak/prestissimo')
-    DEFER+=('composer clearcache')
+    php installer --install-dir=/usr/local/bin --filename=composer --version=2.0.11
+    rm installer
 fi
 
-apk add --no-cache "${APK[@]}"
-docker-php-ext-install "${PHP[@]}"
-for deferred in "${DEFER[@]}"; do
-    eval $deferred
-done
-apk del $PHPIZE_DEPS
+apt-get clean
 rm -rf /var/lib/apt/lists/*
+
+ln -s /usr/sbin/php-fpm8.0 /usr/sbin/php-fpm
