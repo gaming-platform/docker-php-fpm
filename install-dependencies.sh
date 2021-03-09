@@ -12,6 +12,7 @@ add-apt-repository ppa:ondrej/php
 apt-get install --yes --no-install-recommends \
     php8.0-cli \
     php8.0-fpm \
+    php8.0-apcu \
     php8.0-curl \
     php8.0-dom \
     php8.0-intl \
