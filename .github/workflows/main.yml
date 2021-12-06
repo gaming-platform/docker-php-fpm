@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: master
+    branches: v8.0
   pull_request:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
                        .
 
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/v8.0'
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
           docker push gamingplatform/php-fpm:8.0-development
