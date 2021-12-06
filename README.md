@@ -14,7 +14,7 @@ The following environments are available.
 ### Development
 
 __Name__  
-`gamingplatform/php-fpm:8.0-development`
+`gamingplatform/php-fpm:8.1-development`
 
 __Packages__  
 Check
@@ -45,7 +45,7 @@ In the following table you will find an overview of the available environment va
 ### Production
 
 __Name__  
-`gamingplatform/php-fpm:8.0-production`
+`gamingplatform/php-fpm:8.1-production`
 
 __Packages__  
 Check
