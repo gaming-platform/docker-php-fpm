@@ -14,7 +14,7 @@ The following environments are available.
 ### Development
 
 __Name__  
-`gamingplatform/php-fpm:8.0-development`
+`gamingplatform/php-fpm:8.1-development`
 
 __Packages__  
 Check
@@ -32,6 +32,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_START_SERVERS`          | 2         |
 | `PHP_FPM_PM_MIN_SPARE_SERVERS`      | 1         |
 | `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3         |
+| `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32        |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0         |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 0         |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000     |
@@ -45,7 +46,7 @@ In the following table you will find an overview of the available environment va
 ### Production
 
 __Name__  
-`gamingplatform/php-fpm:8.0-production`
+`gamingplatform/php-fpm:8.1-production`
 
 __Packages__  
 Check
@@ -63,6 +64,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_START_SERVERS`          | 2         |
 | `PHP_FPM_PM_MIN_SPARE_SERVERS`      | 1         |
 | `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3         |
+| `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32        |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0         |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 256M      |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000     |
