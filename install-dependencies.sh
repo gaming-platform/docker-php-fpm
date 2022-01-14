@@ -33,7 +33,7 @@ then
         https://raw.githubusercontent.com/composer/getcomposer.org/d3e09029468023aa4e9dcd165e9b6f43df0a9999/web/installer \
         --output installer
 
-    php installer --install-dir=/usr/local/bin --filename=composer --version=2.0.11
+    php installer --install-dir=/usr/local/bin --filename=composer --version=2.2.4
     rm installer
 fi
 
