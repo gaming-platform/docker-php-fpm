@@ -17,6 +17,16 @@ onSignal () {
   exit
 }
 
+waitForOneAndExit () {
+  wait -n
+  exitCode=$?
+
+  kill $(jobs -p)
+  wait
+
+  exit $exitCode
+}
+
 trap onSignal SIGTERM SIGINT
 
 PHP_FPM_LISTEN="/var/run/php-fpm.sock" php-fpm &
@@ -25,6 +35,4 @@ pidPhpFpm=$!
 nginx -g 'daemon off;' &
 pidNginx=$!
 
-wait -n
-kill $(jobs -p)
-wait
+waitForOneAndExit
