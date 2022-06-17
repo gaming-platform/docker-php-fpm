@@ -26,5 +26,6 @@ COPY /install-dependencies.sh /
 RUN /install-dependencies.sh
 
 COPY /config/php /etc/php/8.1/
+COPY /config/nginx /etc/nginx/
 
 COPY /bin /bin
