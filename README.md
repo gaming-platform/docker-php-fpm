@@ -34,7 +34,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3            |
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32           |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0            |
-| `PHP_HTTP_WEB_DIRECTORY`            | /project/web |
+| `PHP_HTTP_DOCUMENT_ROOT`            | /project/web |
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000        |
 | `PHP_HTTP_LISTEN`                   | 80           |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 0            |
@@ -69,7 +69,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPARE_SERVERS`      | 3            |
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32           |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0            |
-| `PHP_HTTP_WEB_DIRECTORY`            | /project/web |
+| `PHP_HTTP_DOCUMENT_ROOT`            | /project/web |
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000        |
 | `PHP_HTTP_LISTEN`                   | 80           |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 256M         |

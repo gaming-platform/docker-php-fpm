@@ -1,6 +1,6 @@
 server {
     listen $PHP_HTTP_LISTEN;
-    root $PHP_HTTP_WEB_DIRECTORY;
+    root $PHP_HTTP_DOCUMENT_ROOT;
     keepalive_requests $PHP_HTTP_KEEPALIVE_REQUESTS;
 
     location / {
