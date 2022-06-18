@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# This is a wrapper script to run php-fpm and nginx in the same container.
+# It provides a graceful shutdown by first sending QUIT to nginx
+# and TERM to php-fpm once nginx has finished its execution.
+
+pidPhpFpm=0
+pidNginx=0
+
+onSignal () {
+  kill -QUIT "$pidNginx"
+  wait -n
+
+  kill -TERM "$pidPhpFpm"
+  wait -n
+
+  exit
+}
+
+waitForOneAndExit () {
+  wait -n
+  exitCode=$?
+
+  kill $(jobs -p)
+  wait
+
+  exit $exitCode
+}
+
+trap onSignal SIGTERM SIGINT
+
+envsubst "$(printf '${%s}' ${!PHP_HTTP_*})" \
+    < "/etc/nginx/sites-template/default" \
+    > "/etc/nginx/sites-available/default"
+
+PHP_FPM_LISTEN="/var/run/php-fpm.sock" php-fpm &
+pidPhpFpm=$!
+
+nginx -g 'daemon off;' &
+pidNginx=$!
+
+waitForOneAndExit

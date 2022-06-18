@@ -7,9 +7,11 @@ apt-get upgrade --yes
 
 apt-get install --yes --no-install-recommends \
     software-properties-common
-add-apt-repository ppa:ondrej/php
+add-apt-repository --yes ppa:ondrej/php
 
 apt-get install --yes --no-install-recommends \
+    gettext \
+    nginx \
     php8.1-cli \
     php8.1-fpm \
     php8.1-apcu \
