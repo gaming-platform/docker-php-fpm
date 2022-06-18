@@ -35,6 +35,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32           |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0            |
 | `PHP_HTTP_WEB_DIRECTORY`            | /project/web |
+| `PHP_HTTP_LISTEN`                   | 80           |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 0            |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000        |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256          |
@@ -68,6 +69,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32           |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0            |
 | `PHP_HTTP_WEB_DIRECTORY`            | /project/web |
+| `PHP_HTTP_LISTEN`                   | 80           |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 256M         |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000        |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256          |
