@@ -10,6 +10,7 @@ apt-get install --yes --no-install-recommends \
 add-apt-repository --yes ppa:ondrej/php
 
 apt-get install --yes --no-install-recommends \
+    gettext \
     nginx \
     php8.1-cli \
     php8.1-fpm \

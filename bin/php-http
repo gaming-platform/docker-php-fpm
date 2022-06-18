@@ -29,6 +29,8 @@ waitForOneAndExit () {
 
 trap onSignal SIGTERM SIGINT
 
+envsubst '\$PHP_HTTP_WEB_DIRECTORY' < "/etc/nginx/sites-template/default" > "/etc/nginx/sites-available/default"
+
 PHP_FPM_LISTEN="/var/run/php-fpm.sock" php-fpm &
 pidPhpFpm=$!
 

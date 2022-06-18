@@ -1,6 +1,6 @@
 server {
     listen 80;
-    root /project/web;
+    root $PHP_HTTP_WEB_DIRECTORY;
     keepalive_requests 10000;
 
     location / {
