@@ -1,7 +1,7 @@
 server {
     listen $PHP_HTTP_LISTEN;
     root $PHP_HTTP_WEB_DIRECTORY;
-    keepalive_requests 10000;
+    keepalive_requests $PHP_HTTP_KEEPALIVE_REQUESTS;
 
     location / {
         try_files $uri /index.php$is_args$args;
