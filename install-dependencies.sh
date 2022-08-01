@@ -21,6 +21,7 @@ apt-get install --yes --no-install-recommends \
     php8.1-mbstring \
     php8.1-mysql \
     php8.1-sockets \
+    php8.1-sqlite \
     php8.1-zip
 
 if [ "$environment" = "development" ]
