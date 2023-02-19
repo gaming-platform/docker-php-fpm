@@ -15,21 +15,18 @@ jobs:
 
       - name: Prepare
         run: |
-          docker build --tag gamingplatform/php-fpm:8.1-development \
+          docker build --tag ghcr.io/gaming-platform/php-fpm:8.1-development  \
                        .
           docker build --build-arg environment=production \
                        --build-arg php_opcache_jit_buffer_size=256M \
                        --build-arg php_opcache_validate_timestamps=0 \
                        --build-arg php_zend_assertions=-1 \
-                       --tag gamingplatform/php-fpm:8.1-production \
+                       --tag ghcr.io/gaming-platform/php-fpm:8.1-production \
                        .
 
       - name: Deploy
         if: github.ref == 'refs/heads/master'
         run: |
-          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          docker push gamingplatform/php-fpm:8.1-development
-          docker push gamingplatform/php-fpm:8.1-production
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push ghcr.io/gaming-platform/php-fpm:8.1-development
+          docker push ghcr.io/gaming-platform/php-fpm:8.1-production
