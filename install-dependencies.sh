@@ -12,17 +12,17 @@ add-apt-repository --yes ppa:ondrej/php
 apt-get install --yes --no-install-recommends \
     gettext \
     nginx \
-    php8.1-cli \
-    php8.1-fpm \
-    php8.1-apcu \
-    php8.1-curl \
-    php8.1-dom \
-    php8.1-intl \
-    php8.1-mbstring \
-    php8.1-mysql \
-    php8.1-sockets \
-    php8.1-sqlite \
-    php8.1-zip
+    php8.2-cli \
+    php8.2-fpm \
+    php8.2-apcu \
+    php8.2-curl \
+    php8.2-dom \
+    php8.2-intl \
+    php8.2-mbstring \
+    php8.2-mysql \
+    php8.2-sockets \
+    php8.2-sqlite \
+    php8.2-zip
 
 if [ "$environment" = "development" ]
 then
@@ -30,7 +30,7 @@ then
         curl \
         inotify-tools \
         unzip \
-        php8.1-xdebug
+        php8.2-xdebug
 
     curl \
         https://raw.githubusercontent.com/composer/getcomposer.org/d3e09029468023aa4e9dcd165e9b6f43df0a9999/web/installer \
@@ -43,4 +43,4 @@ fi
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
-ln -s /usr/sbin/php-fpm8.1 /usr/sbin/php-fpm
+ln -s /usr/sbin/php-fpm8.2 /usr/sbin/php-fpm
