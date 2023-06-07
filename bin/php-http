@@ -33,7 +33,7 @@ envsubst "$(printf '${%s}' ${!PHP_HTTP_*})" \
     < "/etc/nginx/sites-template/default" \
     > "/etc/nginx/sites-available/default"
 
-PHP_FPM_LISTEN="/var/run/php-fpm.sock" php-fpm &
+PHP_FPM_LISTEN="/var/run/php-fpm.sock" PHP_FPM_ACCESS_LOG="/dev/null" php-fpm &
 pidPhpFpm=$!
 
 nginx -g 'daemon off;' &

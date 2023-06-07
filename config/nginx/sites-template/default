@@ -1,3 +1,24 @@
+log_format json escape=json '{'
+  '"request_id":"$request_id",'
+  '"request_length":"$request_length",'
+  '"remote_addr":"$remote_addr",'
+  '"remote_user":"$remote_user",'
+  '"remote_port":"$remote_port",'
+  '"time":"$time_iso8601",'
+  '"request":"$request",'
+  '"request_method":"$request_method",'
+  '"request_uri":"$request_uri",'
+  '"status":"$status",'
+  '"bytes_sent":"$bytes_sent",'
+  '"http_referer":"$http_referer",'
+  '"http_user_agent":"$http_user_agent",'
+  '"http_x_forwarded_for":"$http_x_forwarded_for",'
+  '"http_host":"$http_host",'
+  '"request_time":"$request_time",'
+  '"scheme":"$scheme",'
+  '"server_protocol":"$server_protocol"'
+'}';
+
 server {
     listen $PHP_HTTP_LISTEN;
     root $PHP_HTTP_DOCUMENT_ROOT;
@@ -18,7 +39,7 @@ server {
     }
 
     error_log /dev/stdout;
-    access_log /dev/stdout;
+    access_log /dev/stdout json buffer=64k flush=$PHP_HTTP_LOG_FLUSH;
 }
 
 upstream fastcgi_backend {

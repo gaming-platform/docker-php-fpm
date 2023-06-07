@@ -15,12 +15,13 @@ jobs:
 
       - name: Prepare
         run: |
-          docker build --tag ghcr.io/gaming-platform/docker-php-fpm:8.2-development  \
+          docker build --tag ghcr.io/gaming-platform/docker-php-fpm:8.2-development \
                        .
           docker build --build-arg environment=production \
                        --build-arg php_opcache_jit_buffer_size=256M \
                        --build-arg php_opcache_validate_timestamps=0 \
                        --build-arg php_zend_assertions=-1 \
+                       --build-arg php_http_log_flush=5s \
                        --tag ghcr.io/gaming-platform/docker-php-fpm:8.2-production \
                        .
 
