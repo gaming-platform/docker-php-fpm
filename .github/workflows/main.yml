@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: master
+    branches: v8.2
   pull_request:
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
                        .
 
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/v8.2'
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
           docker push ghcr.io/gaming-platform/docker-php-fpm:8.2-development
