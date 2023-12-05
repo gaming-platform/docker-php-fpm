@@ -31,7 +31,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
 COPY /install-dependencies.sh /
 RUN /install-dependencies.sh
 
-COPY /config/php /etc/php/8.2/
+COPY /config/php /etc/php/8.3/
 COPY /config/nginx /etc/nginx/
 
 COPY /bin /bin
