@@ -33,10 +33,10 @@ then
         php8.3-xdebug
 
     curl \
-        https://raw.githubusercontent.com/composer/getcomposer.org/d3e09029468023aa4e9dcd165e9b6f43df0a9999/web/installer \
+        https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer \
         --output installer
 
-    php installer --install-dir=/usr/local/bin --filename=composer --version=2.5.4
+    php installer --install-dir=/usr/local/bin --filename=composer --version=2.6.5
     rm installer
 fi
 
