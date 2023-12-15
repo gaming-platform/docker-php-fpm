@@ -14,7 +14,7 @@ The following environments are available.
 ### Development
 
 __Name__  
-`ghcr.io/gaming-platform/docker-php-fpm:8.2-development`
+`ghcr.io/gaming-platform/docker-php-fpm:8.3-development`
 
 __Packages__  
 Check
@@ -35,7 +35,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32              |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0               |
 | `PHP_FPM_ACCESS_LOG`                | /proc/self/fd/2 |
-| `PHP_HTTP_DOCUMENT_ROOT`            | /project/web    |
+| `PHP_HTTP_DOCUMENT_ROOT`            | /project/public |
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000           |
 | `PHP_HTTP_LISTEN`                   | 80              |
 | `PHP_HTTP_LOG_FLUSH`                | 1s              |
@@ -51,7 +51,7 @@ In the following table you will find an overview of the available environment va
 ### Production
 
 __Name__  
-`ghcr.io/gaming-platform/docker-php-fpm:8.2-production`
+`ghcr.io/gaming-platform/docker-php-fpm:8.3-production`
 
 __Packages__  
 Check
@@ -72,7 +72,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_FPM_PM_MAX_SPAWN_RATE`         | 32              |
 | `PHP_FPM_PM_MAX_REQUESTS`           | 0               |
 | `PHP_FPM_ACCESS_LOG`                | /proc/self/fd/2 |
-| `PHP_HTTP_DOCUMENT_ROOT`            | /project/web    |
+| `PHP_HTTP_DOCUMENT_ROOT`            | /project/public |
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000           |
 | `PHP_HTTP_LISTEN`                   | 80              |
 | `PHP_HTTP_LOG_FLUSH`                | 5s              |

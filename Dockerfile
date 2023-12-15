@@ -15,7 +15,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
     PHP_FPM_PM_MAX_SPAWN_RATE=32 \
     PHP_FPM_PM_MAX_REQUESTS=0 \
     PHP_FPM_ACCESS_LOG=/proc/self/fd/2 \
-    PHP_HTTP_DOCUMENT_ROOT=/project/web \
+    PHP_HTTP_DOCUMENT_ROOT=/project/public \
     PHP_HTTP_KEEPALIVE_REQUESTS=10000 \
     PHP_HTTP_LISTEN=80 \
     PHP_HTTP_LOG_FLUSH=$php_http_log_flush \
@@ -31,7 +31,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
 COPY /install-dependencies.sh /
 RUN /install-dependencies.sh
 
-COPY /config/php /etc/php/8.2/
+COPY /config/php /etc/php/8.3/
 COPY /config/nginx /etc/nginx/
 
 COPY /bin /bin
