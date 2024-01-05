@@ -22,7 +22,8 @@ apt-get install --yes --no-install-recommends \
     php8.3-mysql \
     php8.3-sockets \
     php8.3-sqlite \
-    php8.3-zip
+    php8.3-zip \
+    php8.3-protobuf
 
 if [ "$environment" = "development" ]
 then
