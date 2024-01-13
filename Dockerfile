@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ARG environment=development
 ARG php_opcache_jit_buffer_size=0

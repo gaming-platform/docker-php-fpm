@@ -5,7 +5,7 @@ set -e
 apt-get update
 apt-get upgrade --yes
 
-apt-get install --yes --no-install-recommends \
+apt-get install --yes \
     software-properties-common
 add-apt-repository --yes ppa:ondrej/php
 
