@@ -41,6 +41,9 @@ then
     rm installer
 fi
 
+apt-get purge --yes \
+    software-properties-common
+apt-get autoremove --yes
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
