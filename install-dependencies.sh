@@ -5,7 +5,7 @@ set -e
 apt-get update
 apt-get upgrade --yes
 
-apt-get install --yes --no-install-recommends \
+apt-get install --yes \
     software-properties-common
 add-apt-repository --yes ppa:ondrej/php
 
@@ -41,6 +41,9 @@ then
     rm installer
 fi
 
+apt-get purge --yes \
+    software-properties-common
+apt-get autoremove --yes
 apt-get clean
 rm -rf /var/lib/apt/lists/*
 
