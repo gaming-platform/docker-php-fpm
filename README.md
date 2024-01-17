@@ -1,10 +1,11 @@
 # docker-php-fpm
 
-__Please don't use these docker images on your projects.
-Tags will have breaking changes and are likely to drop.
-They are built exclusively for this platform.__
+__Attention: This Docker image is specifically designed for the
+[gaming platform](https://github.com/gaming-platform)
+and shouldn't be used in other projects. Tags may undergo
+breaking changes and could be subject to removal.__
 
-This repository provides base `php-fpm` images for the
+This repository provides a `php-fpm` image for the
 [gaming platform](https://github.com/gaming-platform).
 
 ## Environments
@@ -14,7 +15,7 @@ The following environments are available.
 ### Development
 
 __Name__  
-`gamingplatform/php-fpm:7.3-development`
+`ghcr.io/gaming-platform/docker-php-fpm:7.3-development`
 
 __PHP extensions__  
 Basically everything what the `php:7.3-fpm-alpine` image provides and
@@ -36,7 +37,7 @@ Basically everything what the `php:7.3-fpm-alpine` image provides and
 ### Production
 
 __Name__  
-`gamingplatform/php-fpm:7.3-production`
+`ghcr.io/gaming-platform/docker-php-fpm:7.3-production`
 
 __PHP extensions__  
 Basically everything what the `php:7.3-fpm-alpine` image provides and
