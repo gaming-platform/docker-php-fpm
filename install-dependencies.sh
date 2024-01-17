@@ -32,7 +32,7 @@ then
 
     PHP+=('zip')
 
-    DEFER+=('pecl install xdebug')
+    DEFER+=('pecl install xdebug-2.9.8')
     DEFER+=('docker-php-ext-enable xdebug')
 
     DEFER+=("
