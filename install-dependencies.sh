@@ -10,6 +10,7 @@ apt-get install --yes \
 add-apt-repository --yes ppa:ondrej/php
 
 apt-get install --yes --no-install-recommends \
+    acl \
     gettext \
     nginx \
     php8.3-cli \
