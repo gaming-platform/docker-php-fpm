@@ -1,6 +1,7 @@
 FROM ubuntu:22.04
 
 ARG environment=development
+ARG php_opcache_jit=disable
 ARG php_opcache_jit_buffer_size=0
 ARG php_opcache_validate_timestamps=1
 ARG php_zend_assertions=1
@@ -19,6 +20,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
     PHP_HTTP_KEEPALIVE_REQUESTS=10000 \
     PHP_HTTP_LISTEN=80 \
     PHP_HTTP_LOG_FLUSH=$php_http_log_flush \
+    PHP_OPCACHE_JIT=$php_opcache_jit \
     PHP_OPCACHE_JIT_BUFFER_SIZE=$php_opcache_jit_buffer_size \
     PHP_OPCACHE_MAX_ACCELERATED_FILES=20000 \
     PHP_OPCACHE_MEMORY_CONSUMPTION=256 \
@@ -31,7 +33,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
 COPY /install-dependencies.sh /
 RUN /install-dependencies.sh
 
-COPY /config/php /etc/php/8.3/
+COPY /config/php /etc/php/8.4/
 COPY /config/nginx /etc/nginx/
 
 COPY /bin /bin
