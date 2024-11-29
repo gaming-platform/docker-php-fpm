@@ -40,6 +40,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000           |
 | `PHP_HTTP_LISTEN`                   | 80              |
 | `PHP_HTTP_LOG_FLUSH`                | 1s              |
+| `PHP_OPCACHE_JIT`                   | disable         |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 0               |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000           |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256             |
@@ -77,6 +78,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_HTTP_KEEPALIVE_REQUESTS`       | 10000           |
 | `PHP_HTTP_LISTEN`                   | 80              |
 | `PHP_HTTP_LOG_FLUSH`                | 5s              |
+| `PHP_OPCACHE_JIT`                   | tracing         |
 | `PHP_OPCACHE_JIT_BUFFER_SIZE`       | 256M            |
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000           |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256             |
