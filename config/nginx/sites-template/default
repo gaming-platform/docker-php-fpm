@@ -20,7 +20,7 @@ log_format json escape=json '{'
 '}';
 
 fastcgi_cache_path /tmp/nginx levels=1:2 keys_zone=app:8m;
-fastcgi_cache_key $scheme://$host/$subrequest_uri;
+fastcgi_cache_key $scheme://$request_method/$host/$subrequest_uri;
 
 server {
     listen $PHP_HTTP_LISTEN;
@@ -28,8 +28,6 @@ server {
     keepalive_requests $PHP_HTTP_KEEPALIVE_REQUESTS;
 
     location / {
-        # $request_uri is always the main request, and $uri is bound to the location.
-        # This enables correct processing of SSI sub-requests.
         set $subrequest_uri $uri$is_args$args;
         try_files $uri /index.php$is_args$args;
     }
