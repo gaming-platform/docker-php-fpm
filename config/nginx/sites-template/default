@@ -19,6 +19,9 @@ log_format json escape=json '{'
   '"server_protocol":"$server_protocol"'
 '}';
 
+fastcgi_cache_path /tmp/nginx levels=1:2 keys_zone=app:8m;
+fastcgi_cache_key $scheme://$host/$subrequest_uri;
+
 server {
     listen $PHP_HTTP_LISTEN;
     root $PHP_HTTP_DOCUMENT_ROOT;
@@ -34,6 +37,7 @@ server {
     location ~ ^/index\.php(/|$) {
         internal;
         ssi on;
+        fastcgi_cache app;
         fastcgi_pass fastcgi_backend;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
