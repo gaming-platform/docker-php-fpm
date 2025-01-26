@@ -27,7 +27,7 @@ server {
     location / {
         # $request_uri is always the main request, and $uri is bound to the location.
         # This enables correct processing of SSI sub-requests.
-        set $subrequest_uri $uri;
+        set $subrequest_uri $uri$is_args$args;
         try_files $uri /index.php$is_args$args;
     }
 
