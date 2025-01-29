@@ -19,20 +19,28 @@ log_format json escape=json '{'
   '"server_protocol":"$server_protocol"'
 '}';
 
+fastcgi_cache_path /tmp/nginx levels=1:2 keys_zone=app:8m;
+fastcgi_cache_key $scheme://$request_method/$host/$subrequest_uri;
+
 server {
     listen $PHP_HTTP_LISTEN;
     root $PHP_HTTP_DOCUMENT_ROOT;
     keepalive_requests $PHP_HTTP_KEEPALIVE_REQUESTS;
 
     location / {
+        set $subrequest_uri $uri$is_args$args;
         try_files $uri /index.php$is_args$args;
     }
 
     location ~ ^/index\.php(/|$) {
         internal;
+        ssi on;
+        fastcgi_cache app;
         fastcgi_pass fastcgi_backend;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
+        fastcgi_param REQUEST_URI $subrequest_uri;
+        fastcgi_param HTTP_SURROGATE_CAPABILITY "device=\"SSI/1.0\"";
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
         fastcgi_param SERVER_NAME $host;
