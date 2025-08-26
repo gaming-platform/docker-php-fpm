@@ -45,6 +45,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000           |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256             |
 | `PHP_OPCACHE_VALIDATE_TIMESTAMPS`   | 1               |
+| `PHP_APCU_SHM_SIZE`                 | 64M             |
 | `PHP_REALPATH_CACHE_SIZE`           | 4096K           |
 | `PHP_REALPATH_CACHE_TTL`            | 600             |
 | `PHP_XDEBUG_MODE`                   | coverage        |
@@ -83,6 +84,7 @@ In the following table you will find an overview of the available environment va
 | `PHP_OPCACHE_MAX_ACCELERATED_FILES` | 20000           |
 | `PHP_OPCACHE_MEMORY_CONSUMPTION`    | 256             |
 | `PHP_OPCACHE_VALIDATE_TIMESTAMPS`   | 0               |
+| `PHP_APCU_SHM_SIZE`                 | 64M             |
 | `PHP_REALPATH_CACHE_SIZE`           | 4096K           |
 | `PHP_REALPATH_CACHE_TTL`            | 600             |
 | `PHP_ZEND_ASSERTIONS`               | -1              |
