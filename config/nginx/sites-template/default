@@ -50,7 +50,7 @@ server {
     gzip_vary on;
     gzip_proxied any;
     gzip_comp_level 6;
-    gzip_types text/plain text/html text/css
+    gzip_types text/plain text/css
         application/javascript text/javascript application/json
         text/xml application/xml application/xml+rss;
 

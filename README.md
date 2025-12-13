@@ -15,7 +15,7 @@ The following environments are available.
 ### Development
 
 __Name__  
-`ghcr.io/gaming-platform/docker-php-fpm:8.4-development`
+`ghcr.io/gaming-platform/docker-php-fpm:8.5-development`
 
 __Packages__  
 Check
@@ -54,7 +54,7 @@ In the following table you will find an overview of the available environment va
 ### Production
 
 __Name__  
-`ghcr.io/gaming-platform/docker-php-fpm:8.4-production`
+`ghcr.io/gaming-platform/docker-php-fpm:8.5-production`
 
 __Packages__  
 Check
