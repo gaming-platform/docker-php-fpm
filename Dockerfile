@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ARG environment=development
 ARG php_opcache_jit=disable
@@ -34,7 +34,7 @@ ENV PHP_FPM_LISTEN=[::]:9000 \
 COPY /install-dependencies.sh /
 RUN /install-dependencies.sh
 
-COPY /config/php /etc/php/8.4/
+COPY /config/php /etc/php/8.5/
 COPY /config/nginx /etc/nginx/
 
 COPY /bin /bin
